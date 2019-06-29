@@ -1,0 +1,46 @@
+{
+    "extends": ["standard", "plugin:react/recommended"],
+    "plugins": [
+        "html",
+        "jest",
+        "react"
+    ],
+    "root": true,
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    },
+    "env": {
+        "jest/globals": true,
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+
+    "rules": {
+        "no-console": 0,
+        "react/display-name": [0],
+        "quotes": ["warn", "single"],
+        "eqeqeq": 0,
+        "semi": ["error", "always"],
+        "camelcase": [0],
+        "no-alert": "error",
+        "indent": [
+            "warn",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ]
+    }
+}

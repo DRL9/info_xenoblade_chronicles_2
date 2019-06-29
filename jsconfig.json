@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "module": "commonjs",
+        "paths": {
+            "src/*": [
+                "src/*"
+            ],
+        }
+    },
+    "exclude": [
+        "node_modules",
+        "dist"
+    ],
+    "typeAcquisition": {
+        "include": ["jest"]
+    }
+}
