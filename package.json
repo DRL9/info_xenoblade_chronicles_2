@@ -1,0 +1,22 @@
+{
+    "name": "info_xenoblade_chronicles_2",
+    "version": "1.0.0",
+    "description": "some data in Xenoblade Chronicles 2",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DRL9/info_xenoblade_chronicles_2.git"
+    },
+    "keywords": [
+        "Xenoblade Chronicles 2"
+    ],
+    "author": "drl9",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DRL9/info_xenoblade_chronicles_2/issues"
+    },
+    "homepage": "https://github.com/DRL9/info_xenoblade_chronicles_2#readme"
+}
