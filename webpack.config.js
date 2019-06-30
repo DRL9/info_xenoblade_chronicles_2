@@ -3,12 +3,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin').CleanWebpackPlugin;
 const webpack = require('webpack');
-const os = require('os');
 const fs = require('fs');
 
 const localhost = (function getLocalIp () {
     return (
-        Object.values(os.networkInterfaces())
+        Object.values(require('os').networkInterfaces())
             .reduce((prev, cur) => prev.concat(cur), [])
             .map(item => item.address)
             .find(address => /192\.168\.(\d{1,2})\./.test(address)) ||
