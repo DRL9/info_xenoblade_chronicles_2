@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Monsters from './components/Monsters';
 
 const Buttion = styled.button`
     background: transparent;
@@ -16,6 +17,9 @@ export default class App extends React.Component {
             <section>
                 Hello world
                 <Buttion>click me</Buttion>
+                <div>
+                    <Monsters />
+                </div>
             </section>
         );
     }
