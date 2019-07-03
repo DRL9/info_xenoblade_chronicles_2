@@ -1,11 +1,56 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { fetchMonsters } from '../store/actions';
+import Paper from './Paper';
 
 const Img = styled.img`
     max-width: 100px;
+`;
+
+const Table = styled.table`
+    width: ${props => props.width || '100%'};
+    margin: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+`;
+
+const TableRow = styled.tr`
+    &:nth-of-type(2n) {
+        background-color: rgb(245, 245, 245);
+    }
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.07);
+    }
+`;
+
+const TableHead = styled.thead`
+    color: rgba(0, 0, 0, 0.54);
+    text-align: ${props => props.textAlign || 'left'};
+    & > ${TableRow} {
+        font-weight: 600;
+    }
+    & > ${TableRow}:hover {
+        background-color: transparent;
+    }
+`;
+
+const TableBody = styled.tbody``;
+
+const TableCell = styled.td`
+    padding: 0.5em 1em;
+    ${props =>
+        props.width &&
+        css`
+            width: ${props.width};
+        `};
+
+    ${props =>
+        props.minWidth &&
+        css`
+            width: ${props.minWidth};
+        `};
 `;
 
 class MonstersRaw extends React.Component {
@@ -45,32 +90,44 @@ class MonstersRaw extends React.Component {
     }
     render () {
         return (
-            <table>
-                <thead>
-                    <tr>
-                        {this.tableMap.map(item => (
-                            <th role={item.field} key={item.field}>
-                                {item.fieldName}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.props.monsters.map(monster => (
-                        <tr key={monster.name}>
+            <Paper>
+                <Table>
+                    <TableHead>
+                        <TableRow>
                             {this.tableMap.map(item => (
-                                <td key={item.field}>
-                                    {item.isImg ? (
-                                        <Img src={'./public/imgs/' + monster[item.field]} />
-                                    ) : (
-                                        <span>{monster[item.field]}</span>
-                                    )}
-                                </td>
+                                <TableCell
+                                    as="th"
+                                    role={item.field}
+                                    key={item.field}
+                                    minWidth={'3em'}
+                                >
+                                    {item.fieldName}
+                                </TableCell>
                             ))}
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {this.props.monsters.map(monster => (
+                            <TableRow key={monster.name}>
+                                {this.tableMap.map(item => (
+                                    <TableCell key={item.field}>
+                                        {item.isImg ? (
+                                            <Img
+                                                src={
+                                                    './public/imgs/' +
+                                                    monster[item.field]
+                                                }
+                                            />
+                                        ) : (
+                                            <span>{monster[item.field]}</span>
+                                        )}
+                                    </TableCell>
+                                ))}
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </Paper>
         );
     }
 }

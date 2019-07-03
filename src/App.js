@@ -1,25 +1,20 @@
+import { createGlobalStyle } from 'styled-components';
 import React from 'react';
-import styled from 'styled-components';
 import Monsters from './components/Monsters';
 
-const Buttion = styled.button`
-    background: transparent;
-    border-radius: 3px;
-    border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
+const GlobalStyle = createGlobalStyle`
+    body {
+        padding: 0;
+        margin: 0;
+    }
 `;
 
 export default class App extends React.Component {
     render () {
         return (
             <section>
-                Hello world
-                <Buttion>click me</Buttion>
-                <div>
-                    <Monsters />
-                </div>
+                <GlobalStyle />
+                <Monsters />
             </section>
         );
     }
