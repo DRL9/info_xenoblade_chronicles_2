@@ -114,7 +114,7 @@ class MonstersRaw extends React.Component {
                                         {item.isImg ? (
                                             <Img
                                                 src={
-                                                    './public/imgs/' +
+                                                    '//res.cloudinary.com/dv0fvsitl/image/upload/v1562162826/Xenoblade_Chronicles_2/' +
                                                     monster[item.field]
                                                 }
                                             />
