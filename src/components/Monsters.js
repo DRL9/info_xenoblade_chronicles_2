@@ -4,10 +4,7 @@ import { connect } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { fetchMonsters } from '../store/actions';
 import Paper from './Paper';
-
-const Img = styled.img`
-    max-width: 100px;
-`;
+import { showPicture } from './Picture';
 
 const Table = styled.table`
     width: ${props => props.width || '100%'};
@@ -51,6 +48,41 @@ const TableCell = styled.td`
         css`
             width: ${props.minWidth};
         `};
+`;
+
+const Button = styled.button`
+    padding: 6px 16px;
+    min-width: 64px;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.2),
+        0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+        0px 3px 1px -2px rgba(0, 0, 0, 0.12);
+    color: #fff;
+    background-color: #1976d2;
+    font-size: 0.875rem;
+    box-sizing: border-box;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+        border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 500;
+    line-height: 1.75;
+    border-radius: 4px;
+    letter-spacing: 0.02857em;
+
+    cursor: pointer;
+    margin: 0;
+    display: inline-flex;
+    outline: none;
+    position: relative;
+    align-items: center;
+    user-select: none;
+    border-radius: 0;
+    vertical-align: middle;
+    -moz-appearance: none;
+    justify-content: center;
+    text-decoration: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
 `;
 
 class MonstersRaw extends React.Component {
@@ -112,12 +144,16 @@ class MonstersRaw extends React.Component {
                                 {this.tableMap.map(item => (
                                     <TableCell key={item.field}>
                                         {item.isImg ? (
-                                            <Img
-                                                src={
-                                                    '//res.cloudinary.com/dv0fvsitl/image/upload/v1562162826/Xenoblade_Chronicles_2/' +
-                                                    monster[item.field]
-                                                }
-                                            />
+                                            <Button
+                                                onClick={showPicture.bind(
+                                                    this,
+                                                    `//res.cloudinary.com/dv0fvsitl/image/upload/v1562162826/Xenoblade_Chronicles_2/${
+                                                        monster[item.field]
+                                                    }`
+                                                )}
+                                            >
+                                                查看大图
+                                            </Button>
                                         ) : (
                                             <span>{monster[item.field]}</span>
                                         )}
