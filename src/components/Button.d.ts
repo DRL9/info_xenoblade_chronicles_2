@@ -11,4 +11,5 @@ export type ButtonType = 'text' | 'plain';
 declare const Button: React.FunctionComponent<
 ButtonProps & React.HTMLProps<HTMLButtonElement>
 >;
+
 export default Button;

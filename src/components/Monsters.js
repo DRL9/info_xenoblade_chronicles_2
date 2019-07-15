@@ -112,7 +112,7 @@ class MonstersRaw extends React.Component {
                                         {item.isImg ? (
                                             <Button
                                                 btnSize="small"
-                                                btnType="text"
+                                                btnType="plain"
                                                 onClick={showPicture.bind(
                                                     this,
                                                     `//res.cloudinary.com/dv0fvsitl/image/upload/v1562162826/Xenoblade_Chronicles_2/${

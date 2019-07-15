@@ -41,7 +41,13 @@ const Button = styled.button`
                   background-color: transparent;
                   box-shadow: none;
               `
-            : ''}
+            : props.btnType === 'plain'
+                ? css`
+                  background-color: transparent;
+                  box-shadow: none;
+                  border: 1px solid;
+              `
+                : ''}
 
     &:hover {
         background-color: #d5d5d5;
@@ -50,7 +56,7 @@ const Button = styled.button`
 
 Button.propTypes = {
     btnSize: PropTypes.oneOf(['small', 'large']),
-    btnType: PropTypes.oneOf(['text'])
+    btnType: PropTypes.oneOf(['text', 'plain'])
 };
 
 export default Button;
